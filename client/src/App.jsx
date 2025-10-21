@@ -10,9 +10,13 @@ function App() {
     setCurrentStep(2)
   }
 
+  const handle2FA = () => {
+    alert('2FA successful! Logged in.')
+  }
+
   return (
     <div className="App" style={{ minHeight: '100vh' }}>
-      {currentStep === 1 ? <SignIn1 onSignIn={handleSignIn} /> : <SignIn2 />}
+      {currentStep === 1 ? <SignIn1 onSignIn={handleSignIn} /> : <SignIn2 onSuccess={handle2FA} />}
     </div>
   )
 }
