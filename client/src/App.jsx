@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import SignIn1 from './Components/SignIn1'
 import SignIn2 from './Components/SignIn2'
+import MainPage1 from './Components/MainPage1'
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -11,12 +12,18 @@ function App() {
   }
 
   const handle2FA = () => {
-    alert('2FA successful! Logged in.')
+    setCurrentStep(3)
   }
 
   return (
     <div className="App" style={{ minHeight: '100vh' }}>
-      {currentStep === 1 ? <SignIn1 onSignIn={handleSignIn} /> : <SignIn2 onSuccess={handle2FA} />}
+      {currentStep === 1 ? (
+        <SignIn1 onSignIn={handleSignIn} />
+      ) : currentStep === 2 ? (
+        <SignIn2 onSuccess={handle2FA} />
+      ) : (
+        <MainPage1 />
+      )}
     </div>
   )
 }

@@ -8,8 +8,6 @@ function SignIn1({ onSignIn }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Email:", email, "Password:", password);
-    // Placeholder for sign-in logic
-    alert("Signing in with email: " + email);
     onSignIn();
   };
 
